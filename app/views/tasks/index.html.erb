@@ -1,6 +1,8 @@
 <h1>To Do</h1>
 <ul>
   <% @tasks.each do |task| %>
-    <li><%= link_to task.title, task_path(task.id) %>, done? <%= task.completed %> </li>
+    <li><%= link_to task.title, task_path(task) %>, done? <%= task.completed %> <%= link_to '🗑️', task_path(task), method: :delete %>  <%= link_to '✏️', edit_path(task) %></li>
   <% end %>
 </ul>
+<br>
+<%= link_to "Add a new task", new_path %>
